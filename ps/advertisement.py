@@ -41,10 +41,12 @@ if __name__ == "__main__":
     play_time = "02:03:55"
     adv_time = "00:14:15"
     logs = ["01:20:15-01:45:14", "00:40:31-01:00:00", "00:25:50-00:48:29", "01:30:59-01:53:29", "01:37:44-02:02:30"]
-    result = "01:30:59"
-    ret = solution(play_time, adv_time, logs)
-    print(f"return: {ret}, result: {result}, 비교: {ret == result}")
+    answer = "01:30:59"
+    result = solution(play_time, adv_time, logs)
+    print(f"answer: {answer}\nresult: {result}\n비교: {answer == result}")
    
     """
-    return: 01:30:59, result: 01:30:59, 비교: True
+    answer: 01:30:59
+    result: 01:30:59
+    비교: True
     """

@@ -27,12 +27,12 @@ def solution(orders, course):
 if __name__ == "__main__":
     orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
     course = [2, 3, 4]
-    result = ["AC", "ACDE", "BCFG", "CDE"]
-    ret = solution(orders, course)
-    print(f"return: {ret}\nresult: {result}\n비교: {ret == result}")
+    answer = ["AC", "ACDE", "BCFG", "CDE"]
+    result = solution(orders, course)
+    print(f"answer: {answer}\nresult: {result}\n비교: {answer == result}")
    
     """
-    return: ['AC', 'ACDE', 'BCFG', 'CDE']
+    answer: ['AC', 'ACDE', 'BCFG', 'CDE']
     result: ['AC', 'ACDE', 'BCFG', 'CDE']
     비교: True
     """
