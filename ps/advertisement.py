@@ -44,3 +44,7 @@ if __name__ == "__main__":
     result = "01:30:59"
     ret = solution(play_time, adv_time, logs)
     print(f"return: {ret}, result: {result}, 비교: {ret == result}")
+   
+    """
+    return: 01:30:59, result: 01:30:59, 비교: True
+    """

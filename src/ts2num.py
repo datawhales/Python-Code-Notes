@@ -19,3 +19,9 @@ if __name__ == "__main__":
     print('num:', ts2num(ts))
     num = ts2num(ts)
     print('ts:', num2ts(num))
+
+    """
+    01:14:35
+    num: 4475
+    ts: 01:14:35
+    """
