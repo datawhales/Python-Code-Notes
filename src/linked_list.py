@@ -12,7 +12,7 @@ class SingleLinkedLists:
 
     def addFirst(self, x):
         new = LinkedNode(x)
-        new.next = self.sentinel.next.next
+        new.next = self.sentinel.next
         self.sentinel.next = new
         self.size += 1
 
