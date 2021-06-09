@@ -69,3 +69,38 @@ def quick_sort_2(L):
     right = [x for x in remain if x > pivot]
     return quick_sort_2(left) + [pivot] + quick_sort_2(right)
 
+# quick sort 3
+def pivot_select(L, start, end):
+    mid = (start + end) // 2
+    if L[start] > L[mid]:
+        L[start], L[mid] = L[mid], L[start]
+    if L[start] > L[end]:
+        L[start], L[end] = L[end], L[start]
+    if L[mid] > L[end]:
+        L[mid], L[end] = L[end], L[mid]
+    return mid
+
+def partitioning(L, pivot_idx):
+    pivot = L[pivot_idx]
+    left, right = 0, len(L)-1
+    while left < right:
+        while left < len(L) and L[left] <= pivot:
+            left += 1
+        while right >= 0 and L[right] >= pivot:
+            right -= 1
+        if left < right:
+            L[left], L[right] = L[right], L[left]
+    if pivot_idx < left:
+        left -= 1
+    L[pivot_idx], L[left] = L[left], L[pivot_idx]
+    return left
+
+def partition_sort(L, start, end):
+    if start < end:
+        pivot_idx = pivot_select(L, start, end)
+        pivot_idx = partitioning(L, pivot_idx)
+        partition_sort(L, start, pivot_idx-1)
+        partition_sort(L, pivot_idx+1, end)
+
+def quick_sort(L):
+    partition_sort(L, 0, len(L)-1)
