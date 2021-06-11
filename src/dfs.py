@@ -1,5 +1,6 @@
 """ dfs 함수 구현.
     그래프 형태에 따라 다르게 구현.
+    dfs_x_y 함수 = 섬의 개수 세기 문제에 쓰이는 dfs 함수 구현.
 """
 def dfs_by_index(graph, v, visited):
     """ 노드가 연결되어 있으면 1로 나타내는 2차원 배열 그래프.
@@ -36,3 +37,25 @@ def dfs_by_nodenum(graph, v, visited):
     for i in graph[v]:
         if visited[i] == 0:
             dfs_by_nodenum(graph, i, visited)
+
+def dfs_x_y(graph, x, y):
+    if x <= -1 or x >= len(graph) or y <= -1 or y >= len(graph[0]):
+        return False
+
+    if graph[x][y] == 0:
+        # 방문 처리
+        graph[x][y] = 1
+        dfs_x_y(graph, x-1, y)
+        dfs_x_y(graph, x, y-1)
+        dfs_x_y(graph, x+1, y)
+        dfs_x_y(graph, x, y+1)
+        return True
+    return False
+
+def island_num(graph):
+    cnt = 0
+    for i in range(len(graph)):
+        for j in range(len(graph[0])):
+            if dfs_x_y(graph, i, j) == True:
+                cnt += 1
+    return cnt

@@ -38,3 +38,38 @@ def bfs(graph, v, visited):
             if visited[i] == 0:
                 queue.append(i)
                 visited[i] = 1
+
+def maze(N, M, graph):
+    """ 미로 탈출 문제.
+        1인 지역만 지나갈 수 있을 때 탈출 위치까지의 최단 거리 계산.
+        
+        Point: 다음 위치가 그래프를 벗어나면 continue,
+                0인 위치이면 continue,
+                1인 위치(한 번도 지나지 않은 지역)이면 큐에 추가하고 이전 위치 + 1을 저장.
+    """
+    from collections import deque
+    # N, M = map(int, input().split())
+    # graph = []
+    # for _ in range(N):
+    #     graph.append(list(map(int, input())))
+
+    def bfs(x, y):
+        queue = deque([(x, y)])
+        while queue:
+            x, y = queue.popleft()
+                
+            dx = [-1, 0, 1, 0]
+            dy = [0, -1, 0, 1]
+
+            for i in range(4):
+                nx, ny = x + dx[i], y + dy[i]
+                if nx < 0 or ny < 0 or nx >= N or ny >= M:
+                    continue
+                if graph[nx][ny] == 0:
+                    continue
+                if graph[nx][ny] == 1:
+                    queue.append((nx, ny))
+                    graph[nx][ny] = graph[x][y] + 1
+
+    bfs(0,0)
+    return graph[N-1][M-1]
