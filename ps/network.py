@@ -1,4 +1,4 @@
-""" 네트워크.
+""" 네트워크. DFS.
     Link: https://programmers.co.kr/learn/courses/30/lessons/43162
 """
 def dfs(graph, v, visited):

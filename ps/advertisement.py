@@ -1,4 +1,4 @@
-""" 광고 삽입.
+""" 광고 삽입. DP.
     Link: https://programmers.co.kr/learn/courses/30/lessons/72414
 """
 def str2num(string):

@@ -1,4 +1,4 @@
-""" 정수 삼각형.
+""" 정수 삼각형. DP.
     Link: https://programmers.co.kr/learn/courses/30/lessons/43105
 """
 def solution(triangle):

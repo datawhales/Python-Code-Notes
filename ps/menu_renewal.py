@@ -1,4 +1,4 @@
-""" 메뉴 리뉴얼.
+""" 메뉴 리뉴얼. 문자열.
     Link: https://programmers.co.kr/learn/courses/30/lessons/72411
 """
 def solution(orders, course):
