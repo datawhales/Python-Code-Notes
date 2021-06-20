@@ -32,8 +32,8 @@ def merge(left, right):
         else:
             result.append(right[j])
             j += 1
-    if i == len(left): result += right[j:len(right)]
-    if j == len(right): result += left[i:len(left)]
+    if i < len(left): result += left[i:]
+    elif j < len(right): result += right[j:]
     return result
 
 def merge_sort(L):

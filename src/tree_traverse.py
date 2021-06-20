@@ -52,3 +52,6 @@ class Tree:
         for childNode in curNode.child:
             self.__DFT_postorderHelp(childNode)
         self.visit(curNode)
+
+    def DFT_postorder(self):
+        self.__DFT_postorderHelp(self.root)

@@ -37,6 +37,31 @@ def dfs_by_nodenum(graph, v, visited):
     for i in graph[v]:
         if visited[i] == 0:
             dfs_by_nodenum(graph, i, visited)
+            
+def dfs_sol(graph, start):
+    """ 각 노드에 대해 연결된 노드의 번호를 나타내는 2차원 배열 그래프.
+
+        ex)
+            graph = [
+                [],
+                [2, 3, 8],
+                [1, 7],
+                [1, 4, 5],
+                [3, 5],
+                [3, 4],
+                [7],
+                [2, 6, 8],
+                [1, 7]
+            ]
+    """
+    visited = dict()
+    def dfs_help(graph, v, visited):
+        visited[v] = True
+        for i in graph[v]:
+            if i not in visited:
+                dfs_help(graph, i, visited)
+    dfs_help(graph, start, visited)
+    return visited
 
 def dfs_x_y(graph, x, y):
     if x <= -1 or x >= len(graph) or y <= -1 or y >= len(graph[0]):
