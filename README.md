@@ -1,6 +1,6 @@
 # Python-Code-Notes
 - Problem Solving with Python
-- Algorithm & Data Structure Implementation Codes
+- Algorithm & Data Structure Implementation
 
 ## Links
 백준: https://www.acmicpc.net/problemset  
