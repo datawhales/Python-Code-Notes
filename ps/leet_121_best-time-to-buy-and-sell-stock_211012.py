@@ -6,6 +6,11 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
+        """ 한 번 순회하는 동안 현재까지 지나온 지점 중 최소 지점을 저장하고,
+            현재 위치의 가격 - 최소 가격이 현재까지 중의 가장 큰 이익보다 크면 이를 가장 큰 이익에 저장하는 방식.
+            Time Complexity: O(n)
+            Space Complexity: O(1)
+        """
         max_profit = 0
         for i in range(len(prices)):
             if i == 0:
