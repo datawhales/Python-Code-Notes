@@ -9,6 +9,7 @@ def is_prime(num):
     """ 소수이면 True,
         소수가 아니면 False 반환.
     """
+    if num <= 1: return False
     for i in range(2, int(num ** 0.5) + 1):
         if num % i == 0:
             return False
