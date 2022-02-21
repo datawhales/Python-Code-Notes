@@ -1,4 +1,4 @@
-""" 양궁대회.
+""" 양궁대회. (미완성)
     Link: https://programmers.co.kr/learn/courses/30/lessons/92342
 """
 def convert(n):
