@@ -7,10 +7,13 @@ from typing import List
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         def dfs_x_y(grid, x, y):
+            # 종료 조건
             if x < 0 or x >= len(grid) or y < 0 or y >= len(grid[0]):
                 return False
             if grid[x][y] == "1":
+                # 방문 처리
                 grid[x][y] = "0"
+                # 다음 위치 이동
                 dfs_x_y(grid, x+1, y)
                 dfs_x_y(grid, x, y+1)
                 dfs_x_y(grid, x-1, y)
