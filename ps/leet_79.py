@@ -10,8 +10,7 @@ class Solution:
         ret = ''
         def dfs(x, y, path):
             nonlocal ret
-            print(f'dfs {x}, {y}, {path}, {ret}')
-            print(visited)
+            # print(f'dfs {x}, {y}, {path}, {ret}')
             # 경로가 알맞게 가고 있지 않거나 이미 단어가 발견되었다면 바로 종료
             if ret == word or path != word[:len(path)]:
                 return
