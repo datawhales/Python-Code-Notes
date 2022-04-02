@@ -17,16 +17,15 @@ class Solution:
                       '8': ['t', 'u', 'v'],
                       '9': ['w', 'x', 'y', 'z']}
         ret = []
-        n = len(digits)
         def dfs(digits, path):
-            # ret에 path 추가 조건
-            if len(path) == n:
+            # 종료 조건
+            if not digits:
                 ret.append(path)
-            for i in range(len(digits)):
-                for j in range(len(digits_map[digits[i]])):
-                    dfs(digits[i+1:], path + [digits_map[digits[i]][j]])
-        dfs(digits, [])
-        return [''.join(x) for x in ret]
+                return
+            for i in range(len(digits_map[digits[0]])):
+                dfs(digits[1:], path + digits_map[digits[0]][i])
+        dfs(digits, '')
+        return ret
 
 if __name__ == "__main__":
     digits = "23"
