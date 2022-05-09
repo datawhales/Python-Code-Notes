@@ -3,30 +3,35 @@
     Link: https://leetcode.com/problems/longest-repeating-character-replacement/
 """
 from typing import List
-from collections import Counter
+from collections import defaultdict
 
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        # s의 각 원소를 순회하면서 카운터에 개수를 추가
-        # right - left - 카운터에서 가장 빈도 수가 높은 원소의 개수 <= k 이면 right += 1
-        # 다시 k가 될 때까지 left += 1, 카운터에서 s[left] 값의 빈도 수도 -= 1
+        # s를 순회하면서
+        # 알파벳 개수를 카운트
+        # 투포인터 활용
+        # right-left-가장 많은 빈도의 알파벳 개수 <= k일 때 max_len 측정
         
+        if len(s) <= k:
+            return len(s)
+        
+        max_len = 0
         left = 0
-        max_num = 0
-        freq = Counter()
+        freq = defaultdict(int)
         
-        for right, char in enumerate(s, 1):
+        for i, char in enumerate(s):
+            right = i + 1
             freq[char] += 1
-            
+
             if right - left - max(freq.values()) <= k:
-                max_num = max(max_num, right - left)
+                max_len = max(max_len, right - left)
             
-            else:        
-                while left <= right and right - left - max(freq.values()) > k:
+            else:
+                while left < right and right - left - max(freq.values()) > k:
                     freq[s[left]] -= 1
                     left += 1
-            
-        return len(s) if max_num == 0 else max_num
+                    
+        return max_len
 
 if __name__ == "__main__":
     s = "AABABBA"
