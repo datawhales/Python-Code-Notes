@@ -7,34 +7,19 @@ from typing import List
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         m, n = len(matrix), len(matrix[0])
+        visited = [[False] * n for _ in range(m)]
         
         dx, dy = 0, 1
-        
-        # dx, dy = dy, -dx
-        
-        ret = []
-        visited = set()
         x, y = 0, 0
-        visited.add((x, y))
-        ret.append(matrix[x][y])
-        
-        for _ in range(m * n - 1):
-            # 만약 다음 위치가 visited에 존재하면 방향 전환
-            nx, ny = x + dx, y + dy
-            
-            if nx < 0 or nx >= m or ny < 0 or ny >= n or (nx, ny) in visited:
-                dx, dy = dy, -dx
-            
-                # 바뀐 방향으로 다시 전진
-                x += dx
-                y += dy
-                
-            else:
-                x, y = nx, ny
-                
-            visited.add((x, y))
+        ret = []
+        for _ in range(m*n):
+            visited[x][y] = True
             ret.append(matrix[x][y])
-    
+            nx, ny = x + dx, y + dy
+            if nx < 0 or nx >= m or ny < 0 or ny >= n or visited[nx][ny]:
+                dx, dy = dy, -dx
+            x += dx
+            y += dy
         return ret
 
 if __name__ == "__main__":
