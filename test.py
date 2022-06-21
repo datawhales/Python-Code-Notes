@@ -15,10 +15,10 @@ def binary_search(L, trg):
 L = [1,4,8,10,11,11,11,11,14,14,17]
 trg = 18
 
-print(binary_search(L, trg))
+# print(binary_search(L, trg))
 
-from bisect import bisect_left, bisect_right
+# from bisect import bisect_left, bisect_right
 
-print(bisect_left(L, trg))
+# print(bisect_left(L, trg))
 
-print(bisect_right(L, trg))
+# print(bisect_right(L, trg))
